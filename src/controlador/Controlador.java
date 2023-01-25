@@ -29,6 +29,7 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -1316,17 +1317,36 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     
     public void generarReporteEnPdf(){
         
-        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Java\\ReporteEnPdf\\src\\reporteenpdf\\reporte.jrxml";
-        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Java\\ReporteEnPdf\\src\\reporteenpdf\\reporte.pdf";
+        String usuario = "postgres";
+        String contrasena = "admin";
+    
+        String base = "Buen_PastorB";
+        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Proyecto_de_vinculacion\\VinculacionUG\\BuenPastor_App\\src\\reportes\\reporte_de_asistencias.jrxml";
+        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Proyecto_de_vinculacion\\VinculacionUG\\BuenPastor_App\\src\\reportes\\reporte_de_asistencias.pdf";
         
+         Connection conexion = null;
+
+        try {
+            conexion = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/"+base+"?"+ "user="+usuario+"&password="+contrasena);
+
+            conexion.setAutoCommit(false);
+
+            if (conexion != null) {
+                System.out.println("Conexion lista");
+            }
+
+        } catch (Exception e) {
+            System.err.println("Conexion no establecida ");
+
+        }
+
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(rutaOrigen);
 
-          //  Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");
 
             // Crear informe
-           // JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conexion);
 
             JasperExportManager.exportReportToPdf(jasperPrint);
 
