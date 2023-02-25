@@ -42,6 +42,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jBttn_DatoUsuario1 = new javax.swing.JButton();
         jBttn_DatoUsuario = new javax.swing.JButton();
         jBttn_Beneficiarios = new javax.swing.JButton();
         jBttn_Registro = new javax.swing.JButton();
@@ -49,26 +50,32 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jBttn_DatoUsuario1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jBttn_DatoUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construir.png"))); // NOI18N
+        jBttn_DatoUsuario1.setText("Mantenedores");
+        jBttn_DatoUsuario1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_DatoUsuario1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jBttn_DatoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 400, 290));
+
         jBttn_DatoUsuario.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_DatoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DataUsers.png"))); // NOI18N
+        jBttn_DatoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/individual.png"))); // NOI18N
         jBttn_DatoUsuario.setText("Datos Usuario");
         jBttn_DatoUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBttn_DatoUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jBttn_DatoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 290));
 
         jBttn_Beneficiarios.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_Beneficiarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Beneficiarios.png"))); // NOI18N
+        jBttn_Beneficiarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trabajando.png"))); // NOI18N
         jBttn_Beneficiarios.setText("Beneficiarios");
         jBttn_Beneficiarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBttn_Beneficiarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jBttn_Beneficiarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 400, 290));
+        jPanel1.add(jBttn_Beneficiarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 400, 290));
 
         jBttn_Registro.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_Registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistroAsis.png"))); // NOI18N
+        jBttn_Registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/requisito.png"))); // NOI18N
         jBttn_Registro.setText("Registro de Asistencia");
         jBttn_Registro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBttn_Registro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -77,13 +84,13 @@ public class Menu_Principal extends javax.swing.JFrame {
                 jBttn_RegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(jBttn_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 400, 290));
+        jPanel1.add(jBttn_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 400, 290));
 
         jLblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
-        jPanel1.add(jLblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, 60));
+        jPanel1.add(jLblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 60));
 
         jLabel_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buenpastor.jpg"))); // NOI18N
-        jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 760));
+        jPanel1.add(jLabel_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 850));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,6 +171,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBttn_Beneficiarios;
     public javax.swing.JButton jBttn_DatoUsuario;
+    public javax.swing.JButton jBttn_DatoUsuario1;
     public javax.swing.JButton jBttn_Registro;
     private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JLabel jLblSalir;

@@ -259,7 +259,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
         if (boton.equals(vistListUsu.getjButton_AgregarUsu())) {
             vistNuevUsu.setVisible(true);
-            vistListUsu.setVisible(false);
+            //vistListUsu.setVisible(false);
         }
         if (boton.equals(vistNuevUsu.getJbtn_guardarUsu())) {
             vistListUsu.setVisible(true);

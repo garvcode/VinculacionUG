@@ -50,8 +50,9 @@ public class UsuEditar extends javax.swing.JFrame {
         jCmbTipo = new javax.swing.JComboBox();
         jCmbEstado = new javax.swing.JComboBox();
         jLblRetroceder = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(228, 244, 251));
@@ -59,19 +60,19 @@ public class UsuEditar extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel2.setText("Usuario");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel3.setText("Contraseña");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel4.setText("Tipo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel5.setText("Estado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
         jTxtUsuario.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         jTxtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -79,10 +80,10 @@ public class UsuEditar extends javax.swing.JFrame {
                 jTxtUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(jTxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 82, 180, -1));
+        jPanel1.add(jTxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 270, -1));
 
         jTxtContra.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jPanel1.add(jTxtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 118, 180, -1));
+        jPanel1.add(jTxtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 270, -1));
 
         jBtn_Modificar.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jBtn_Modificar.setText("Guardar");
@@ -91,19 +92,29 @@ public class UsuEditar extends javax.swing.JFrame {
                 jBtn_ModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBtn_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+        jPanel1.add(jBtn_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 40));
 
         jCmbTipo.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         jCmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Administrador", "Asistente" }));
-        jPanel1.add(jCmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 154, 180, -1));
+        jCmbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbTipoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 270, 30));
 
         jCmbEstado.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         jCmbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "true", "false" }));
         jCmbEstado.setToolTipText("");
-        jPanel1.add(jCmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 189, 180, -1));
+        jPanel1.add(jCmbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 270, 30));
 
         jLblRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroceso.png"))); // NOI18N
         jPanel1.add(jLblRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        jLabel6.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Editar Información de Usuario");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,6 +242,10 @@ public class UsuEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtUsuarioActionPerformed
 
+    private void jCmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCmbTipoActionPerformed
+
     public void verLista_Usuario(){
 //        vista.List_Usuario btnIngresarMen = new vista.List_Usuario();
 //        btnIngresarMen.setVisible(true);
@@ -285,6 +300,7 @@ public class UsuEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLblRetroceder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jTxtContra;
