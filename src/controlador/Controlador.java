@@ -1321,8 +1321,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         String contrasena = "admin";
     
         String base = "Buen_PastorB";
-        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Proyecto_de_vinculacion\\VinculacionUG\\BuenPastor_App\\src\\reportes\\reporte_de_asistencias.jrxml";
-        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\Web_developer\\Proyecto_de_vinculacion\\VinculacionUG\\BuenPastor_App\\src\\reportes\\reporte_de_asistencias.pdf";
+        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\report1.jrxml";
+        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\";
         
          Connection conexion = null;
 
