@@ -30,15 +30,19 @@ WHERE c.nom_cur=$P{nom_cur}]]>
 	<title>
 		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="bbf1b9ef-59ee-4519-9448-6a636e41c537" style="Title" x="122" y="0" width="263" height="33"/>
+				<reportElement uuid="bbf1b9ef-59ee-4519-9448-6a636e41c537" style="Title" x="138" y="0" width="291" height="33"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Leaf Violet Title]]></text>
+				<text><![CDATA[Reporte de Asistencias]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="bc26c2df-74f3-49a9-80a4-f234e1e7e7b9" style="SubTitle" x="63" y="46" width="200" height="22"/>
+				<reportElement uuid="bc26c2df-74f3-49a9-80a4-f234e1e7e7b9" style="SubTitle" x="174" y="33" width="200" height="22"/>
 				<textElement textAlignment="Right"/>
-				<text><![CDATA[Leaf Violet SubTitle]]></text>
+				<text><![CDATA[Lista de Beneficiarios]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="0f7e3492-caaf-47da-ab21-2bc81448c5eb" x="0" y="0" width="138" height="70"/>
+				<imageExpression><![CDATA["C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\Imagenes\\Beneficiarios.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -55,22 +59,22 @@ WHERE c.nom_cur=$P{nom_cur}]]>
 			<staticText>
 				<reportElement uuid="ff2c7ef5-25f2-4fa0-9f3d-486928e2de11" style="Column header" x="0" y="19" width="138" height="15"/>
 				<textElement/>
-				<text><![CDATA[asistencia]]></text>
+				<text><![CDATA[Asistencia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="3ab8495f-7846-4d59-bfc9-1ca3834f5ee8" style="Column header" x="138" y="19" width="138" height="15"/>
+				<reportElement uuid="3ab8495f-7846-4d59-bfc9-1ca3834f5ee8" style="Column header" x="109" y="19" width="121" height="15"/>
 				<textElement/>
-				<text><![CDATA[nombre_curso]]></text>
+				<text><![CDATA[Nombre del Curso]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1f77d39a-0c59-4d00-8ac3-69974f0916ee" style="Column header" x="276" y="19" width="138" height="15"/>
+				<reportElement uuid="1f77d39a-0c59-4d00-8ac3-69974f0916ee" style="Column header" x="261" y="19" width="138" height="15"/>
 				<textElement/>
-				<text><![CDATA[nombre_estudiante]]></text>
+				<text><![CDATA[Nombre del Estudiante]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2dec17b1-bba9-4c6c-8bc4-66a278762011" style="Column header" x="414" y="19" width="138" height="15"/>
+				<reportElement uuid="2dec17b1-bba9-4c6c-8bc4-66a278762011" style="Column header" x="417" y="19" width="138" height="15"/>
 				<textElement/>
-				<text><![CDATA[fecha_asistencia]]></text>
+				<text><![CDATA[Fecha de Asistencia]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -88,17 +92,17 @@ WHERE c.nom_cur=$P{nom_cur}]]>
 				<textFieldExpression><![CDATA[$F{asistencia}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="d0375bb1-3a04-4c2b-a8c8-22c2dd7a3f53" style="Detail" x="138" y="0" width="138" height="15"/>
+				<reportElement uuid="d0375bb1-3a04-4c2b-a8c8-22c2dd7a3f53" style="Detail" x="109" y="0" width="121" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{nombre_curso}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1617e10d-5ea2-4ada-8193-ed4dc2811ce7" style="Detail" x="276" y="0" width="138" height="15"/>
+				<reportElement uuid="1617e10d-5ea2-4ada-8193-ed4dc2811ce7" style="Detail" x="261" y="0" width="138" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{nombre_estudiante}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="0ddc5941-7eec-4ec3-be71-6a73108e2246" style="Detail" x="414" y="0" width="138" height="15"/>
+				<reportElement uuid="0ddc5941-7eec-4ec3-be71-6a73108e2246" style="Detail" x="417" y="0" width="138" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{fecha_asistencia}]]></textFieldExpression>
 			</textField>

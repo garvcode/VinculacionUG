@@ -27,6 +27,7 @@ public class Inicio extends javax.swing.JFrame {
         setTitle("Inicio de sesión ");
         setLocationRelativeTo(null);
         setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        setResizable(false);
     }
 
     public boolean isValidacion() {
