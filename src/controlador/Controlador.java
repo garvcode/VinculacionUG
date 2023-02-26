@@ -1350,7 +1350,13 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
             JasperExportManager.exportReportToPdf(jasperPrint);
 
-            JasperViewer.viewReport(jasperPrint);
+            //JasperViewer.viewReport(jasperPrint);
+            JasperViewer view = new JasperViewer(jasperPrint, false);
+            
+            view.setDefaultCloseOperation(view.DISPOSE_ON_CLOSE);
+            
+            view.setVisible(true);
+            
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
