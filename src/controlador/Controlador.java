@@ -37,6 +37,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -155,7 +157,9 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistCrearCurso.getjLblRetroceder().addMouseListener(this);
         vistRegistCurso.getJbtn_guardar().addActionListener(this);
         vistRegistCurso.getjLblRetroceder().addMouseListener(this);
-
+        
+        vistRegistAsis.getjCmbBMaterias().addActionListener(this);
+        
 //        vistAsisGeneral.getjBttnGuardarForm().addActionListener(this);
 //        vistAsisGeneral.getjBttnCerrarForm().addActionListener(this);
 
@@ -451,7 +455,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         //boton aistencias
         if (boton.equals(vistRegistAsis.getJbtn_BuscarAsistencia())) {
 
-            System.out.println("llegaste");
+            System.out.println("");
             try {
                 refrescar();
             } catch (Exception ex) {
@@ -1343,10 +1347,15 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(rutaOrigen);
 
+            Map parametro = new HashMap();
+//            String item = vistRegistAsis.getjCmbBMaterias().getSelectedItem().toString();
+//            Integer num = Integer.parseInt(item);
+                    
+            parametro.put("nom_cur", vistRegistAsis.getjCmbBMaterias().getSelectedItem().toString());
             Class.forName("org.postgresql.Driver");
 
             // Crear informe
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, conexion);
 
             JasperExportManager.exportReportToPdf(jasperPrint);
 

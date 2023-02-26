@@ -7,6 +7,7 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import modelo.CursoEntity;
 
@@ -77,6 +78,7 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         Asistencia.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         Asistencia.setText("ASISTENCIA");
 
+        jCmbBMaterias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jCmbBMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCmbBMateriasActionPerformed(evt);
@@ -353,6 +355,15 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
     public void setJbtn_GenerarReporteEnPdf(JButton Jbtn_GenerarReporteEnPdf) {
         this.Jbtn_GenerarReporteEnPdf = Jbtn_GenerarReporteEnPdf;
     }
+
+    public JComboBox<CursoEntity> getjCmbBMaterias() {
+        return jCmbBMaterias;
+    }
+
+    public void setjCmbBMaterias(JComboBox<CursoEntity> jCmbBMaterias) {
+        this.jCmbBMaterias = jCmbBMaterias;
+    }
+    
     
 
    
