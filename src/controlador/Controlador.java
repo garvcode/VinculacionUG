@@ -1347,15 +1347,28 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(rutaOrigen);
 
-            Map parametro = new HashMap();
+           
+
+            Map parametros = new HashMap();
+            
 //            String item = vistRegistAsis.getjCmbBMaterias().getSelectedItem().toString();
 //            Integer num = Integer.parseInt(item);
-                    
-            parametro.put("nom_cur", vistRegistAsis.getjCmbBMaterias().getSelectedItem().toString());
+    
+            String fecha;
+            Date date = new Date();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-dd");
+            
+            fecha = simpleDateFormat.format(vistRegistAsis.getjDateChooser2().getDate());
+            System.out.println(fecha);
+
+
+            parametros.put("fech_asis", fecha);
+            parametros.put("nom_cur", vistRegistAsis.getjCmbBMaterias().getSelectedItem().toString());
+            System.out.println(parametros);
             Class.forName("org.postgresql.Driver");
 
             // Crear informe
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametro, conexion);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros , conexion);
 
             JasperExportManager.exportReportToPdf(jasperPrint);
 

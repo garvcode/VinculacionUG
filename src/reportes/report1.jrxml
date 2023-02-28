@@ -10,6 +10,9 @@
 	<parameter name="nom_cur" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="fech_asis" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
 CASE asistencia WHEN true THEN 'Asistencia' WHEN false THEN 'Falta' END AS Asistencia,
@@ -18,7 +21,7 @@ a.estudiante AS Nombre_Estudiante,
 a.fech_asis AS Fecha_Asistencia
 FROM asistencia a 
 INNER JOIN curso c ON c.id_curso = a.id_curso
-WHERE c.nom_cur=$P{nom_cur}]]>
+WHERE c.nom_cur=$P{nom_cur} and a.fech_asis=$P{fech_asis}]]>
 	</queryString>
 	<field name="asistencia" class="java.lang.String"/>
 	<field name="nombre_curso" class="java.lang.String"/>
