@@ -42,18 +42,19 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         jLbIngresarTexto = new javax.swing.JLabel();
         jLblIngresarNumBenefi1 = new javax.swing.JLabel();
         jLblRetroceder = new javax.swing.JLabel();
-        JBTN_exportar = new javax.swing.JButton();
         jBttn_editarBenef = new javax.swing.JButton();
         jBttn_asignarCurso = new javax.swing.JButton();
+        JBTN_exportar = new javax.swing.JButton();
+        JBTN_exportar3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1370, 850));
 
         jPanel1.setBackground(new java.awt.Color(228, 244, 251));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBttn_AgregarBenefi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jBttn_AgregarBenefi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new_add_user_.png"))); // NOI18N
+        jBttn_AgregarBenefi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/add.png"))); // NOI18N
         jBttn_AgregarBenefi.setText("Agregar Beneficiario");
         jBttn_AgregarBenefi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBttn_AgregarBenefi.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -62,13 +63,12 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
                 jBttn_AgregarBenefiActionPerformed(evt);
             }
         });
-        jPanel1.add(jBttn_AgregarBenefi, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 180, 130));
+        jPanel1.add(jBttn_AgregarBenefi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 170, 130));
 
         Jtab_LstBeneficiario.setAutoCreateRowSorter(true);
         Jtab_LstBeneficiario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Jtab_LstBeneficiario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, "Ana Maria", null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -107,6 +107,30 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         jLblRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroceso.png"))); // NOI18N
         jPanel1.add(jLblRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
+        jBttn_editarBenef.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jBttn_editarBenef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
+        jBttn_editarBenef.setText("Editar");
+        jBttn_editarBenef.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_editarBenef.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBttn_editarBenef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBttn_editarBenefActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBttn_editarBenef, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 170, 130));
+
+        jBttn_asignarCurso.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jBttn_asignarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/stamped.png"))); // NOI18N
+        jBttn_asignarCurso.setText("Asignar curso");
+        jBttn_asignarCurso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_asignarCurso.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBttn_asignarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBttn_asignarCursoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBttn_asignarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 450, 170, 130));
+
         JBTN_exportar.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         JBTN_exportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/excel.png"))); // NOI18N
         JBTN_exportar.setText("Exportar a excel");
@@ -117,43 +141,29 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
                 JBTN_exportarActionPerformed(evt);
             }
         });
-        jPanel1.add(JBTN_exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 150, 130));
+        jPanel1.add(JBTN_exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 170, 130));
 
-        jBttn_editarBenef.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jBttn_editarBenef.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
-        jBttn_editarBenef.setText("Editar");
-        jBttn_editarBenef.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_editarBenef.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBttn_editarBenef.addActionListener(new java.awt.event.ActionListener() {
+        JBTN_exportar3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        JBTN_exportar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf-icon.png"))); // NOI18N
+        JBTN_exportar3.setText("Exportar a pdf");
+        JBTN_exportar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JBTN_exportar3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        JBTN_exportar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBttn_editarBenefActionPerformed(evt);
+                JBTN_exportar3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jBttn_editarBenef, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 180, 130));
-
-        jBttn_asignarCurso.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jBttn_asignarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/asignacion.png"))); // NOI18N
-        jBttn_asignarCurso.setText("Asignar curso");
-        jBttn_asignarCurso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_asignarCurso.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBttn_asignarCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBttn_asignarCursoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBttn_asignarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, 150, 130));
+        jPanel1.add(JBTN_exportar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 170, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1439, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         pack();
@@ -164,10 +174,16 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
 //        this.setVisible(false);
     }//GEN-LAST:event_jBttn_AgregarBenefiActionPerformed
 
-    private void JBTN_exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTN_exportarActionPerformed
+    private void jBttn_editarBenefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_editarBenefActionPerformed
         // TODO add your handling code here:
-        ExportarExcel obj;
+    }//GEN-LAST:event_jBttn_editarBenefActionPerformed
 
+    private void jBttn_asignarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_asignarCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBttn_asignarCursoActionPerformed
+
+    private void JBTN_exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTN_exportarActionPerformed
+        ExportarExcel obj;
         try {
             obj = new ExportarExcel();
             obj.exportarExcel(Jtab_LstBeneficiario);
@@ -176,13 +192,9 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBTN_exportarActionPerformed
 
-    private void jBttn_editarBenefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_editarBenefActionPerformed
+    private void JBTN_exportar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTN_exportar3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBttn_editarBenefActionPerformed
-
-    private void jBttn_asignarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_asignarCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBttn_asignarCursoActionPerformed
+    }//GEN-LAST:event_JBTN_exportar3ActionPerformed
     
     public void agregar_Beneficiario(){
         Ins_Personal btnDatospersonal = new Ins_Personal();
@@ -273,6 +285,7 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTN_exportar;
+    private javax.swing.JButton JBTN_exportar3;
     public javax.swing.JTable Jtab_LstBeneficiario;
     private javax.swing.JButton jBttn_AgregarBenefi;
     private javax.swing.JButton jBttn_asignarCurso;

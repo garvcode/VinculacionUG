@@ -88,6 +88,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     private final UsuDatos vistDatosUsu = new UsuDatos();
     private final UsuEditar vistEditarUsu = new UsuEditar();
     private final Menu_Principal vistMenu = new Menu_Principal();
+        private final Menu_Mantenedor vistMenuMantenedor = new Menu_Mantenedor();
     private final Registrar_Asistencia vistRegistAsis = new Registrar_Asistencia();
     private final Registro_Curso vistRegistCurso = new Registro_Curso();
 //    private final Asistencia_General vistAsisGeneral = new Asistencia_General();
@@ -134,7 +135,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
         vistMenu.getjLblSalir().addMouseListener(this);
 
-        vistMenu.jBttn_DatoUsuario.addActionListener(this);
+        vistMenu.jBttn_DatosUsuario.addActionListener(this);
         vistDatosUsu.getjBtn_VerListaUsu().addActionListener(this);
         vistDatosUsu.getjLblRetroceder().addMouseListener(this);
         vistListUsu.getjButton_AgregarUsu().addActionListener(this);
@@ -144,6 +145,10 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistNuevUsu.getjLblRetroceder().addMouseListener(this);
         vistEditarUsu.getjBtn_Modificar().addActionListener(this);
         vistEditarUsu.getjLblRetroceder().addMouseListener(this);
+        
+        vistMenu.jBttn_Mantenedor.addActionListener(this);
+        vistMenuMantenedor.getjLblSalir().addMouseListener(this);
+        vistMenuMantenedor.jBttn_Cursos.addActionListener(this);
 
         vistMenu.jBttn_Registro.addActionListener(this);
         vistRegistAsis.getJbtn_guardar().addActionListener(this);
@@ -184,10 +189,10 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
         vistBeneficiarioLis.getjLblRetroceder().addMouseListener(this);
         vistBeneficiarioLis.getjBttn_editarBenef().addActionListener(this);
-            vistEditarDatos.getjLblRetroceder().addMouseListener(this);
-            vistEditarDatos.getJbtn_guardarEdit().addActionListener(this);
-            vistEditarDatos.getJRB_primaria().addFocusListener(this);
-            vistEditarDatos.getJRB_secundaria().addFocusListener(this);
+        vistEditarDatos.getjLblRetroceder().addMouseListener(this);
+        vistEditarDatos.getJbtn_guardarEdit().addActionListener(this);
+        vistEditarDatos.getJRB_primaria().addFocusListener(this);
+        vistEditarDatos.getJRB_secundaria().addFocusListener(this);
         vistBeneficiarioLis.getjBttn_AgregarBenefi().addActionListener(this);
         vistBeneficiarioLis.getjBttn_asignarCurso().addActionListener(this);
 
@@ -214,26 +219,34 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             }
         }
         //menu----------------------------------------------------------------
-        if (boton.equals(vistMenu.jBttn_DatoUsuario)) {
+        if (boton.equals(vistMenu.jBttn_DatosUsuario)) {
             vistDatosUsu.llenar(usuarioEdit);
             vistDatosUsu.setVisible(true);
             vistMenu.setVisible(false);
         }
         if (boton.equals(vistMenu.jBttn_Registro)) {
-            vistRegistAsis.getJbtn_ModificarAsis().setEnabled(false);
-            
+            vistRegistAsis.getJbtn_ModificarAsis().setEnabled(false);            
             vistRegistAsis.setVisible(true);
             Date date = new Date();
-            vistRegistAsis.getjDateChooser2().setDate(date);
-            
+            vistRegistAsis.getjDateChooser2().setDate(date);            
             vistMenu.setVisible(false);
         }
+        
+        if (boton.equals(vistMenu.jBttn_Mantenedor)) {                       
+            vistMenu.setVisible(false);
+            vistMenuMantenedor.setVisible(true);
+        }             
        
         if (boton.equals(vistMenu.jBttn_Beneficiarios)) {
             llenarTablaBeneficiario();
             vistBeneficiarioLis.setVisible(true);
             vistMenu.setVisible(false);
         }
+        
+        if (boton.equals(vistMenuMantenedor.jBttn_Cursos)) {                       
+            vistRegistCurso.setVisible(true);
+            vistMenuMantenedor.setVisible(false);
+        }           
         //Datos usuarios------------------------------------------------------
         if (boton.equals(vistDatosUsu.getjBtn_VerListaUsu())) {
             datosUsuTabla();
@@ -308,26 +321,28 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         if (boton.equals(vistBeneficiarioLis.getjBttn_editarBenef())) { // Brir ventana para agregar curso
             if (verifiSeleccionBenefi()) {
                 vistEditarDatos.setVisible(true);
-                vistBeneficiarioLis.setVisible(false);
+//                vistBeneficiarioLis.setVisible(false);
             }
         }
         if (boton.equals(vistEditarDatos.getJbtn_guardarEdit())) { // -----------------------------------------------------------------------------------------------
-            vistEditarDatos.editarBenefi();
-            vistEditarDatos.setVisible(false);
-            vistBeneficiarioLis.setVisible(true);
-            llenarTablaBeneficiario();
+            if (vistEditarDatos.editarBenefi()){
+                vistEditarDatos.setVisible(false);
+                vistBeneficiarioLis.setVisible(true);
+                llenarTablaBeneficiario();
+                JOptionPane.showMessageDialog(null, "Los Datos del Beneficiario fueron editados con exito");
+            }           
         }
         if (boton.equals(vistBeneficiarioLis.getjBttn_asignarCurso())) { // Brir ventana para agregar curso
             if (verifiSeleCur()) {
                 vistCursoPer.setVisible(true);
-                vistBeneficiarioLis.setVisible(false);
+                //vistBeneficiarioLis.setVisible(false);
                 vistCursoPer.llenarCursos();
             }
         }
         if (boton.equals(vistCursoPer.getjBttnGuardarCurso())) {
             if (vistCursoPer.verifiCurso()) {
-                vistCursoPer.setVisible(true);
-                vistBeneficiarioLis.setVisible(false);
+                vistCursoPer.setVisible(false);
+                //vistBeneficiarioLis.setVisible(false);
                 JOptionPane.showMessageDialog(null, "El curso fue registrado");
             }
         }
@@ -529,9 +544,15 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         System.out.println("la contraseña es " + vistNuevUsu.getjPsw_ContraUsu().getText());
         try {
             IUsuario datosUsu = new DaoUsuario();
-            datosUsu.insertar(usu);
+            valor = datosUsu.insertar(usu);
             datosUsuTabla();
             limpiar();
+            if (valor == true) {
+                JOptionPane.showMessageDialog(null, "El usuario fue creado con exito", "Sistema", JOptionPane.PLAIN_MESSAGE);
+                vistNuevUsu.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Los datos no fueron modificados", "Error", JOptionPane.WARNING_MESSAGE);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Recuerde que el campo id es una clave foranea "
                     + "asi que solo se puede ingresar datos que pertenescan a esa tabla como US", "Error", JOptionPane.WARNING_MESSAGE);
@@ -1060,6 +1081,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistDatosUsu.setVisible(true);
         }
         if (boton.equals(vistRegistCurso.getjLblRetroceder())) {
+            vistMenuMantenedor.setVisible(true);
             vistRegistCurso.setVisible(false);
         }
         if (boton.equals(vistEditarUsu.getjLblRetroceder())) {
@@ -1083,7 +1105,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistEditarDatos.setVisible(false);
         }
         if (boton.equals(vistCrearCurso.getjLblRetroceder())) {
-            vistRegistCurso.setVisible(true);
+            vistMenuMantenedor.setVisible(true);
             vistCrearCurso.setVisible(false);
         }
         if (boton.equals(vistMenu.getjLblSalir())) {
@@ -1091,11 +1113,14 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistInicio.setVisible(true);//--------------------------ver
             vistMenu.setVisible(false);
         }
+        if (boton.equals(vistMenuMantenedor.getjLblSalir())) {
+            vistMenu.setVisible(true);//--------------------------ver
+            vistMenuMantenedor.setVisible(false);
+        }
         if (boton.equals(vistCursoPer.getjLblRetroceder())) {
             vistBeneficiarioLis.setVisible(true);
             vistCursoPer.setVisible(false);
-        }
-        
+        }        
         if (boton.equals(vistEditarCurso.getjLblRetroceder())) {
             vistRegistCurso.setVisible(true);
             vistEditarCurso.setVisible(false);

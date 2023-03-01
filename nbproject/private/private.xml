@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Inicio.java</file>
             <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/controlador/Controlador.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/UsuDatos.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/List_Usuario.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Menu_Principal.java</file>
+            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Lista_Beneficiarios.java</file>
+            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/dao/DaoBeneficiario.java</file>
+            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/modelo/Reg_Benf.java</file>
+            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Editar/DatosEditar.java</file>
         </group>
     </open-files>
 </project-private>

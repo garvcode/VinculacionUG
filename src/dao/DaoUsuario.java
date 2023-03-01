@@ -41,7 +41,7 @@ public class DaoUsuario extends Conexion implements IUsuario{
             sta.setBoolean(4, usu.getEstado());
             
             sta.executeUpdate();
-         
+            registrar = true;         
         }catch (SQLException e){
             System.out.println("Esta mal el registro sql del insertar"+e);
             JOptionPane.showMessageDialog(null, "Faltan datos o en el campo id_usuario "

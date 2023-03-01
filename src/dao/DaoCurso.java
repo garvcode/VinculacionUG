@@ -23,7 +23,7 @@ public class DaoCurso extends Conexion implements ICurso {
 
     @Override
     public boolean insertar(CursoEntity curso) {
-         boolean registrar = false;
+        boolean registrar = false;
         PreparedStatement sta = null;
         try {
             this.conectar();
