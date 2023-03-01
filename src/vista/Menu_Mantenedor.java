@@ -12,15 +12,14 @@ import vista.UsuDatos;
  *
  * @author CGCF
  */
-public class Menu_Principal extends javax.swing.JFrame {
+public class Menu_Mantenedor extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Menu_Principal() {
+    public Menu_Mantenedor() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);
         setTitle("Menú");
     }
 
@@ -43,10 +42,10 @@ public class Menu_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jBttn_Mantenedor = new javax.swing.JButton();
-        jBttn_DatosUsuario = new javax.swing.JButton();
-        jBttn_Beneficiarios = new javax.swing.JButton();
-        jBttn_Registro = new javax.swing.JButton();
+        jBttn_Proximamente = new javax.swing.JButton();
+        jBttn_Cursos = new javax.swing.JButton();
+        jBttn_ProximamenteDos = new javax.swing.JButton();
+        jBttn_ProximamenteTres = new javax.swing.JButton();
         jLblSalir = new javax.swing.JLabel();
         jLabel_Fondo = new javax.swing.JLabel();
 
@@ -54,38 +53,38 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBttn_Mantenedor.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_Mantenedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construir.png"))); // NOI18N
-        jBttn_Mantenedor.setText("Mantenedores");
-        jBttn_Mantenedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_Mantenedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jBttn_Mantenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 400, 290));
+        jBttn_Proximamente.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jBttn_Proximamente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/signo-de-interrogacion.png"))); // NOI18N
+        jBttn_Proximamente.setText("PROXIMAMENTE");
+        jBttn_Proximamente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_Proximamente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jBttn_Proximamente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 400, 290));
 
-        jBttn_DatosUsuario.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_DatosUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/individual.png"))); // NOI18N
-        jBttn_DatosUsuario.setText("Datos Usuario");
-        jBttn_DatosUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_DatosUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jBttn_DatosUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 290));
+        jBttn_Cursos.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jBttn_Cursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/documentacion.png"))); // NOI18N
+        jBttn_Cursos.setText("Cursos");
+        jBttn_Cursos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_Cursos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jBttn_Cursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 290));
 
-        jBttn_Beneficiarios.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_Beneficiarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trabajando.png"))); // NOI18N
-        jBttn_Beneficiarios.setText("Beneficiarios");
-        jBttn_Beneficiarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_Beneficiarios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jBttn_Beneficiarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 400, 290));
+        jBttn_ProximamenteDos.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jBttn_ProximamenteDos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/signo-de-interrogacion.png"))); // NOI18N
+        jBttn_ProximamenteDos.setText("PROXIMAMENTE");
+        jBttn_ProximamenteDos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_ProximamenteDos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jBttn_ProximamenteDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 400, 290));
 
-        jBttn_Registro.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jBttn_Registro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/requisito.png"))); // NOI18N
-        jBttn_Registro.setText("Registro de Asistencia");
-        jBttn_Registro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBttn_Registro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBttn_Registro.addActionListener(new java.awt.event.ActionListener() {
+        jBttn_ProximamenteTres.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jBttn_ProximamenteTres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/signo-de-interrogacion.png"))); // NOI18N
+        jBttn_ProximamenteTres.setText("PROXIMAMENTE");
+        jBttn_ProximamenteTres.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBttn_ProximamenteTres.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBttn_ProximamenteTres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBttn_RegistroActionPerformed(evt);
+                jBttn_ProximamenteTresActionPerformed(evt);
             }
         });
-        jPanel1.add(jBttn_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 400, 290));
+        jPanel1.add(jBttn_ProximamenteTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 400, 290));
 
         jLblSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
         jPanel1.add(jLblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 60));
@@ -107,9 +106,9 @@ public class Menu_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBttn_RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_RegistroActionPerformed
+    private void jBttn_ProximamenteTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttn_ProximamenteTresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBttn_RegistroActionPerformed
+    }//GEN-LAST:event_jBttn_ProximamenteTresActionPerformed
 
     
     public void datosPersonales(){
@@ -150,30 +149,32 @@ public class Menu_Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu_Mantenedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu_Mantenedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu_Mantenedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu_Mantenedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_Principal().setVisible(true);
+                new Menu_Mantenedor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jBttn_Beneficiarios;
-    public javax.swing.JButton jBttn_DatosUsuario;
-    public javax.swing.JButton jBttn_Mantenedor;
-    public javax.swing.JButton jBttn_Registro;
+    public javax.swing.JButton jBttn_Cursos;
+    public javax.swing.JButton jBttn_Proximamente;
+    public javax.swing.JButton jBttn_ProximamenteDos;
+    public javax.swing.JButton jBttn_ProximamenteTres;
     private javax.swing.JLabel jLabel_Fondo;
     private javax.swing.JLabel jLblSalir;
     private javax.swing.JPanel jPanel1;

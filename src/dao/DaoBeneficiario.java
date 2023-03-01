@@ -109,7 +109,8 @@ public class DaoBeneficiario extends Conexion implements IBeneficiario {
             sta.setString(6, bene.getBen_dir());
             sta.setString(7, bene.getBen_email());
             sta.setString(8, bene.getBen_relig());
-            sta.setString(9, bene.getBen_promsal());
+            
+            sta.setBoolean(9,Boolean.parseBoolean(bene.getBen_promsal()));
             sta.setString(10, bene.getBen_cel());
             sta.setInt(11, bene.getBen_convivientes());
             sta.setInt(12, bene.getId_benf());
@@ -207,17 +208,15 @@ public class DaoBeneficiario extends Conexion implements IBeneficiario {
                 beneficiario.setBen_dir((String)rs.getObject(7));
                 beneficiario.setBen_email((String)rs.getObject(8));
                 beneficiario.setBen_relig((String)rs.getObject(9));
-                beneficiario.setBen_promsal((String)rs.getObject(10));
+                beneficiario.setBen_promsal(rs.getObject(10).toString());
                 beneficiario.setBen_cel((String)rs.getObject(11));
                 beneficiario.setId_padres((Integer)rs.getObject(12));
                 beneficiario.setId_escu((Integer)rs.getObject(13));
                 beneficiario.setId_socioec((Integer)rs.getObject(14));
-                beneficiario.setBen_convivientes((Integer)rs.getObject(15));
+                beneficiario.setBen_convivientes((Integer)rs.getObject(15)); 
             }
             sta.close();
-            conexion.close();
-            
-               
+            conexion.close();              
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,"Ocurrio un error EN sql Obtener Beneficiario:"+e.getMessage());
        } finally{

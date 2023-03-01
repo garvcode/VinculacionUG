@@ -54,11 +54,11 @@ public class Registro_Curso extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(228, 244, 251));
-        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(228, 244, 251));
+        jPanel2.setPreferredSize(new java.awt.Dimension(680, 490));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -87,8 +87,7 @@ public class Registro_Curso extends javax.swing.JFrame {
         Jtbl_Asignaturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "Panaderia", "Activo"},
-                {"2", "Guitarra", "Activo"},
-                {"3", "Corte y Confeccion", "Inactivo"}
+                {"2", "Guitarra", "Activo"}
             },
             new String [] {
                 "Id", "Curso", "Estado"
@@ -126,11 +125,11 @@ public class Registro_Curso extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         pack();

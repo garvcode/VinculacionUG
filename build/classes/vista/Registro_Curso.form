@@ -22,11 +22,10 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="fb" green="f4" red="e4" type="rgb"/>
     </Property>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -47,12 +46,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" min="-2" pref="812" max="-2" attributes="0"/>
+          <Component id="jPanel2" min="-2" pref="1370" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" pref="427" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="0" pref="850" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -61,6 +60,9 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fb" green="f4" red="e4" type="rgb"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[680, 490]"/>
         </Property>
       </Properties>
 
@@ -125,21 +127,18 @@
                   <Color blue="fb" green="f4" red="e4" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="3">
+                  <Table columnCount="3" rowCount="2">
                     <Column editable="true" title="Id" type="java.lang.String">
                       <Data value="1"/>
                       <Data value="2"/>
-                      <Data value="3"/>
                     </Column>
                     <Column editable="true" title="Curso" type="java.lang.String">
                       <Data value="Panaderia"/>
                       <Data value="Guitarra"/>
-                      <Data value="Corte y Confeccion"/>
                     </Column>
                     <Column editable="true" title="Estado" type="java.lang.String">
                       <Data value="Activo"/>
                       <Data value="Activo"/>
-                      <Data value="Inactivo"/>
                     </Column>
                   </Table>
                 </Property>

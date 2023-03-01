@@ -39,15 +39,15 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jBttn_Mantenedor">
+        <Component class="javax.swing.JButton" name="jBttn_Proximamente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/construir.png"/>
+              <Image iconType="3" name="/Imagenes/signo-de-interrogacion.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Mantenedores"/>
+            <Property name="text" type="java.lang.String" value="PROXIMAMENTE"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -60,15 +60,15 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jBttn_DatosUsuario">
+        <Component class="javax.swing.JButton" name="jBttn_Cursos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/individual.png"/>
+              <Image iconType="3" name="/Imagenes/documentacion.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Datos Usuario"/>
+            <Property name="text" type="java.lang.String" value="Cursos"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -81,15 +81,15 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jBttn_Beneficiarios">
+        <Component class="javax.swing.JButton" name="jBttn_ProximamenteDos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/trabajando.png"/>
+              <Image iconType="3" name="/Imagenes/signo-de-interrogacion.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Beneficiarios"/>
+            <Property name="text" type="java.lang.String" value="PROXIMAMENTE"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -102,20 +102,20 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jBttn_Registro">
+        <Component class="javax.swing.JButton" name="jBttn_ProximamenteTres">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/requisito.png"/>
+              <Image iconType="3" name="/Imagenes/signo-de-interrogacion.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registro de Asistencia"/>
+            <Property name="text" type="java.lang.String" value="PROXIMAMENTE"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBttn_RegistroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBttn_ProximamenteTresActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

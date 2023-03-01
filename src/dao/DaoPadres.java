@@ -92,7 +92,7 @@ public class DaoPadres extends Conexion implements IPadres{
              String sql= "UPDATE public.Padres SET ing_econ= ? WHERE id_padres = ?";
              sta=this.conexion.prepareStatement(sql);
              
-             sta.setString(1, pad.getIng_econ());
+             sta.setInt(1, Integer.parseInt(pad.getIng_econ()));
              sta.setInt(2, pad.getId_padres());
              
              
@@ -226,7 +226,7 @@ public class DaoPadres extends Conexion implements IPadres{
             
             while(rs.next()){
                 paNuev.setId_padres((Integer) rs.getObject(1));
-                paNuev.setIng_econ((String) rs.getObject(2));
+                paNuev.setIng_econ(rs.getObject(2).toString());
                 paNuev.setId_papa((Integer) rs.getObject(3));
                 paNuev.setId_mama((Integer)rs.getObject(4));
             }
