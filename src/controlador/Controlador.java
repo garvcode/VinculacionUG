@@ -280,7 +280,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         }
          if (boton.equals(vistRegistAsis.getJbtn_GenerarReporteEnPdf())){
             generarReporteEnPdf();
-            System.out.println("error");
+            //System.out.println("error");
         }
         if (boton.equals(vistRegistAsis.getJbtn_editarCurso())) { // editar cursos disponibles
             //debe ir el metdodo para llenar la tabla
@@ -1128,6 +1128,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         String mes = String.valueOf(fecha.get(Calendar.MONTH) + 1);
         String dia = String.valueOf(fecha.get(Calendar.DAY_OF_MONTH));
         String fechafinal = año + "-" + mes + "-" + dia;
+        System.out.println( "fecha final= " + fechafinal + "fecha inicial= " + fechaT);
 
        
 
@@ -1356,7 +1357,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     
             String fecha;
             Date date = new Date();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-dd");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-d");
             
             fecha = simpleDateFormat.format(vistRegistAsis.getjDateChooser2().getDate());
             System.out.println(fecha);

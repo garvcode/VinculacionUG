@@ -67,8 +67,8 @@ public class DaoAsistencia extends Conexion implements IAsistencia {
        boolean actualizar= false;
 	PreparedStatement sta=null;
         try {
-             this.conectar();
-             String sql= "UPDATE public.asistencia SET  asistencia= ?    WHERE id_asis = ?";
+             this.conectar(); 
+             String sql= "UPDATE public.asistencia SET  asistencia=?    WHERE id_asis =?";
              sta=this.conexion.prepareStatement(sql);
 
              sta.setBoolean(1, asistencia.isEstado());
