@@ -76,7 +76,7 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         jLabel4.setText("Cursos:");
 
         Asistencia.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        Asistencia.setText("ASISTENCIA");
+        Asistencia.setText("REGISTRO DE ASISTENCIAS");
 
         jCmbBMaterias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jCmbBMaterias.addActionListener(new java.awt.event.ActionListener() {
@@ -151,24 +151,6 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLblRetroceder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Asistencia)
-                .addGap(554, 554, 554))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(Jbtn_guardar)
-                        .addGap(57, 57, 57)
-                        .addComponent(Jbtn_ModificarAsis)
-                        .addGap(33, 33, 33)
-                        .addComponent(Jbtn_GenerarReporteEnPdf))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel3)
@@ -183,6 +165,23 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Jbtn_editarCurso)
                 .addGap(80, 80, 80))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLblRetroceder)
+                        .addGap(426, 426, 426)
+                        .addComponent(Asistencia))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(Jbtn_guardar)
+                        .addGap(57, 57, 57)
+                        .addComponent(Jbtn_ModificarAsis)
+                        .addGap(33, 33, 33)
+                        .addComponent(Jbtn_GenerarReporteEnPdf))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

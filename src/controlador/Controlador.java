@@ -1135,7 +1135,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void refrescar() throws Exception {
         
         if(vistRegistAsis.jDateChooser2.getDate()==null){
-            JOptionPane.showMessageDialog(null, "debe seleccionar una fecha");
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha");
         
         }
 
@@ -1161,6 +1161,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
         String[] datos = new String[8];
         String strSelectBd;
+        
+        
 
         if (fechaT.equals(fechafinal)) {
 
@@ -1193,10 +1195,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
                 }
                 vistRegistAsis.jTable2.setModel(modelo);
                 addCheckBox(1, vistRegistAsis.jTable2);
+                
 
             } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Escoja un curso ", "Sistema", JOptionPane.PLAIN_MESSAGE);
             }
+
 
         } else {
             vistRegistAsis.getJbtn_ModificarAsis().setEnabled(true);
@@ -1317,7 +1321,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             }
 
         }
-         JOptionPane.showMessageDialog(null, "Datos Actualizados con exito");
+         JOptionPane.showMessageDialog(null, "Datos Actualizados con exito ----------------");
 
 
     }

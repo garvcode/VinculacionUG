@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/wjoan/OneDrive/Escritorio/VinculacionUG/src/controlador/Controlador.java</file>
             <file>file:/C:/Users/wjoan/OneDrive/Escritorio/VinculacionUG/src/dao/DaoAsistencia.java</file>
-=======
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/controlador/Controlador.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Lista_Beneficiarios.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/dao/DaoBeneficiario.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/modelo/Reg_Benf.java</file>
-            <file>file:/C:/Users/gonza/OneDrive/Documentos/Documentos_Viaxperta/Mio/Proyecto-Vinculacion/VinculacionUG/src/vista/Editar/DatosEditar.java</file>
->>>>>>> 86d577005f8fa77a5c6056b3c89d32d0dc973a2d
+            <file>file:/C:/Users/wjoan/OneDrive/Escritorio/VinculacionUG/src/vista/Registrar_Asistencia.java</file>
+            <file>file:/C:/Users/wjoan/OneDrive/Escritorio/VinculacionUG/src/reportes/report1.jrxml</file>
         </group>
     </open-files>
 </project-private>
