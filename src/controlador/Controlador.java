@@ -156,6 +156,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistRegistAsis.getJbtn_guardar().addActionListener(this);
         vistRegistAsis.getJbtn_editarCurso().addActionListener(this);
         vistRegistAsis.getJbtn_GenerarReporteEnPdf().addActionListener(this);
+        vistRegistAsis.getJbtn_ReporteGeneralEnPdf().addActionListener(this);
+
         vistRegistAsis.getjLblRetroceder().addMouseListener(this);
         vistRegistCurso.Jbtn_agrCurso.addActionListener(this);
         vistCrearCurso.Jbtn_inscCurso.addActionListener(this);
@@ -294,6 +296,9 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
          if (boton.equals(vistRegistAsis.getJbtn_GenerarReporteEnPdf())){
             generarReporteEnPdf();
             //System.out.println("error");
+        }
+         else if (boton.equals(vistRegistAsis.getJbtn_ReporteGeneralEnPdf())){
+            generarReporteEnPdfConRangoDeFechas();
         }
         if (boton.equals(vistRegistAsis.getJbtn_editarCurso())) { // editar cursos disponibles
             //debe ir el metdodo para llenar la tabla
@@ -1035,7 +1040,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistRegistCurso.Jtbl_Asignaturas.setModel(modelocurso);
 
     }
-
+    
     public void llenarCombo() {
 
         Connection conexion = null;
@@ -1130,7 +1135,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistEditarCurso.setVisible(false);
         }
     }
-
+    
     //registro de asistencias
     public void refrescar() throws Exception {
         
@@ -1162,13 +1167,15 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         String[] datos = new String[8];
         String strSelectBd;
         
+        //
         
-
+      
+        
+//-----    
         if (fechaT.equals(fechafinal)) {
-
            vistRegistAsis.getJbtn_ModificarAsis().setEnabled(false);
             vistRegistAsis.getJbtn_guardar().setEnabled(true);
-            modelo.addColumn("Nombre");
+           modelo.addColumn("Nombre");
             modelo.addColumn("Asistencias");
 
             vistRegistAsis.jTable2.setModel(modelo);
@@ -1182,12 +1189,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
                         + "\n"
                         + "union\n"
                         + "SELECT nombre_pa from papa INNER join padres ON padres.id_papa = papa.id_papa inner join asignacion_curso \n"
-                        + "ON asignacion_curso.id_padres = padres.id_padres WHERE asignacion_curso.id_curso='" + selecion + "'");
+                       + "ON asignacion_curso.id_padres = padres.id_padres WHERE asignacion_curso.id_curso='" + selecion + "'");
 
                 Object[] fila;
                 while (resultado.next()) {
                     fila = new Object[5];
-                    fila[0] = resultado.getString(1);
+                  fila[0] = resultado.getString(1);
 
                     fila[1] = Boolean.FALSE;
 
@@ -1198,11 +1205,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
                 
 
             } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Escoja un curso ", "Sistema", JOptionPane.PLAIN_MESSAGE);
+                   JOptionPane.showMessageDialog(null, "Escoja un curso ", "Sistema", JOptionPane.PLAIN_MESSAGE);
             }
 
 
-        } else {
+       } //--
+        else {
             vistRegistAsis.getJbtn_ModificarAsis().setEnabled(true);
             vistRegistAsis.getJbtn_guardar().setEnabled(false);
              modelo.addColumn("ID");
@@ -1212,8 +1220,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistRegistAsis.jTable2.setModel(modelo);
             
             try {
-                Statement leer = this.conectar().createStatement();
-                int selecion = vistRegistAsis.jCmbBMaterias.getItemAt(vistRegistAsis.jCmbBMaterias.getSelectedIndex()).getId();
+               Statement leer = this.conectar().createStatement();
+               int selecion = vistRegistAsis.jCmbBMaterias.getItemAt(vistRegistAsis.jCmbBMaterias.getSelectedIndex()).getId();
                
                 ResultSet resultado = leer.executeQuery("SELECT id_asis,estudiante, asistencia from asistencia where fech_asis='" + fechaT + "' and id_curso='" + selecion + "' ORDER by id_asis ASC");
 
@@ -1225,7 +1233,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
                     strSelectBd = resultado.getString(3);
 
-                   
+                 
 
                     if (strSelectBd.equals("t")) {
                         fila[2] = Boolean.TRUE;
@@ -1234,7 +1242,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
                     }
 
                     modelo.addRow(fila);
-                }
+               }
                 vistRegistAsis.jTable2.setModel(modelo);
                 addCheckBox(2, vistRegistAsis.jTable2);
 
@@ -1251,7 +1259,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         tc.setCellRenderer(table.getDefaultRenderer(Boolean.class));
 
     }
-
+    
     public void RecorrerTabla() {
 
         String fechaT, estudiante;
@@ -1415,5 +1423,75 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         }
     }
     
+    public void generarReporteEnPdfConRangoDeFechas(){
+        
+        String usuario = "postgres";
+        String contrasena = "admin";
+    
+        String base = "Buen_PastorB";
+        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\report_general_asistencias.jrxml";
+        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\";
+        
+         Connection conexion2 = null;
+
+        try {
+            conexion2 = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/"+base+"?"+ "user="+usuario+"&password="+contrasena);
+
+            conexion.setAutoCommit(false);
+
+            if (conexion != null) {
+               // System.out.println("Conexion lista");
+            }
+
+        } catch (Exception e) {
+            System.err.println("Conexion no establecida ");
+
+        }
+
+        try {
+            JasperReport jasperReport2 = JasperCompileManager.compileReport(rutaOrigen);
+
+           
+
+            Map parametros2 = new HashMap();
+            
+
+            String fechaInicial;
+            SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-M-d");
+            
+            
+            String fechaFinal;
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-d");
+            
+            fechaInicial = simpleDateFormat2.format(vistRegistAsis.getjDateChooser2().getDate());
+            System.out.println(fechaInicial);
+
+            fechaFinal = simpleDateFormat.format(vistRegistAsis.getjDateChooser3().getDate());
+            System.out.println(fechaFinal);
+
+            parametros2.put("fecha_inicial", fechaInicial);
+            parametros2.put("fecha_final", fechaFinal);
+
+            System.out.println(parametros2);
+            Class.forName("org.postgresql.Driver");
+
+            // Crear informe
+            JasperPrint jasperPrint2 = JasperFillManager.fillReport(jasperReport2, parametros2 , conexion2);
+
+            JasperExportManager.exportReportToPdf(jasperPrint2);
+
+            //JasperViewer.viewReport(jasperPrint);
+            JasperViewer view2 = new JasperViewer(jasperPrint2, false);
+            
+            view2.setDefaultCloseOperation(view2.DISPOSE_ON_CLOSE);
+            
+            view2.setVisible(true);
+            
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     
 }
