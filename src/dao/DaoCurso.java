@@ -19,7 +19,7 @@ import modelo.CursoEntity;
  * @author N.I.R.N
  */
 public class DaoCurso extends Conexion implements ICurso {
-     final String INSERT = "Insert into public.curso(nom_cur,estado_cur) VALUES (?,?)";
+     final String INSERT = "Insert into public.curso(nom_cur,estado_cur,dirigido_cur) VALUES (?,?,?)";
 
     @Override
     public boolean insertar(CursoEntity curso) {
@@ -30,8 +30,8 @@ public class DaoCurso extends Conexion implements ICurso {
             sta = this.conexion.prepareStatement(INSERT);
 
             sta.setString(1, curso.getNombre());
-            sta.setBoolean(2, curso.isEstado());
-          
+            sta.setBoolean(2, curso.isEstado());          
+            sta.setString(3, curso.getDirigido());
             
             sta.executeUpdate();
 
@@ -48,9 +48,7 @@ public class DaoCurso extends Conexion implements ICurso {
                 Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return registrar;
-        
-       
+        return registrar;      
     }
 
     @Override
@@ -64,12 +62,13 @@ public class DaoCurso extends Conexion implements ICurso {
 	PreparedStatement sta=null;
         try {
              this.conectar();
-             String sql= "UPDATE public.curso SET nom_cur = ?  , estado_cur = ?  WHERE id_curso = ?";
+             String sql= "UPDATE public.curso SET nom_cur = ?  , estado_cur = ?  , dirigido_cur = ?  WHERE id_curso = ?";
              sta=this.conexion.prepareStatement(sql);
 
              sta.setString(1, curso.getNombre());
              sta.setBoolean(2, curso.isEstado());
-             sta.setInt(3, curso.getId());
+             sta.setString(3, curso.getDirigido());
+             sta.setInt(4, curso.getId());
              
             
             int filas = sta.executeUpdate();
@@ -98,7 +97,7 @@ public class DaoCurso extends Conexion implements ICurso {
         ResultSet rs=null;
         ArrayList<Object[]> cursoList= new ArrayList<>();
         
-        String sql="SELECT id_curso,nom_cur,estado_cur FROM PUBLIC.curso  ORDER by id_curso";
+        String sql="SELECT id_curso,nom_cur,estado_cur,dirigido_cur FROM PUBLIC.curso  ORDER by id_curso";
         
         try {
             this.conectar();
@@ -110,8 +109,8 @@ public class DaoCurso extends Conexion implements ICurso {
             stm=conexion.prepareStatement(sql);
             rs= stm.executeQuery();
             while(rs.next()){
-                Object[] fila = new Object[3];
-                for(int i=0; i<=2;i++){
+                Object[] fila = new Object[4];
+                for(int i=0; i<=3;i++){
                    fila[i]=rs.getObject(i+1);
                 }
                 cursoList.add(fila);

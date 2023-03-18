@@ -66,7 +66,7 @@ public class Registro_Curso extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         Jbtn_agrCurso.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        Jbtn_agrCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save.png"))); // NOI18N
+        Jbtn_agrCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/add.png"))); // NOI18N
         Jbtn_agrCurso.setText("Agregar Curso");
         Jbtn_agrCurso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Jbtn_agrCurso.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -86,15 +86,14 @@ public class Registro_Curso extends javax.swing.JFrame {
         Jtbl_Asignaturas.setBackground(new java.awt.Color(228, 244, 251));
         Jtbl_Asignaturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Panaderia", "Activo"},
-                {"2", "Guitarra", "Activo"}
+
             },
             new String [] {
-                "Id", "Curso", "Estado"
+                "Id", "Curso", "Estado", "Dirigido"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -107,7 +106,7 @@ public class Registro_Curso extends javax.swing.JFrame {
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 660, 150));
 
         Jbtn_Editar.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        Jbtn_Editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        Jbtn_Editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
         Jbtn_Editar.setText("Editar");
         Jbtn_Editar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Jbtn_Editar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

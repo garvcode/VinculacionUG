@@ -89,7 +89,7 @@
               <Font name="Trebuchet MS" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Save.png"/>
+              <Image iconType="3" name="/Imagenes/add.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar Curso"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -127,19 +127,11 @@
                   <Color blue="fb" green="f4" red="e4" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="2">
-                    <Column editable="true" title="Id" type="java.lang.String">
-                      <Data value="1"/>
-                      <Data value="2"/>
-                    </Column>
-                    <Column editable="true" title="Curso" type="java.lang.String">
-                      <Data value="Panaderia"/>
-                      <Data value="Guitarra"/>
-                    </Column>
-                    <Column editable="true" title="Estado" type="java.lang.String">
-                      <Data value="Activo"/>
-                      <Data value="Activo"/>
-                    </Column>
+                  <Table columnCount="4" rowCount="0">
+                    <Column editable="true" title="Id" type="java.lang.String"/>
+                    <Column editable="true" title="Curso" type="java.lang.String"/>
+                    <Column editable="true" title="Estado" type="java.lang.String"/>
+                    <Column editable="true" title="Dirigido" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -177,7 +169,7 @@
               <Font name="Trebuchet MS" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/editar.png"/>
+              <Image iconType="3" name="/Imagenes/edit.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Editar"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>

@@ -18,8 +18,6 @@ import dao.DaoUsuario;
 import idao.IAsistencia;
 import idao.ICurso;
 import idao.IFicha;
-import idao.IMama;
-import idao.IPapa;
 import idao.ISocioEconomico;
 import idao.IUsuario;
 import java.awt.event.ActionEvent;
@@ -32,6 +30,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,11 +43,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 import modelo.*;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -251,6 +247,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         
         if (boton.equals(vistMenuMantenedor.jBttn_Cursos)) {                       
             vistRegistCurso.setVisible(true);
+            llenarTablaCurso();
             vistMenuMantenedor.setVisible(false);
         }           
         //Datos usuarios------------------------------------------------------
@@ -693,11 +690,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         curso = new CursoEntity();
         Integer id, numEstad;
         String nombre;
+        String dirigido;
         boolean estad = true;
         id = (Integer) vistRegistCurso.Jtbl_Asignaturas.getValueAt(idEdit, 0);
         curso.setId(id);
 
-        vistEditarCurso.getJlb_Id().setText(String.valueOf(id));
+//        vistEditarCurso.getJlb_Id().setText(String.valueOf(id));
 
         nombre = (String) vistRegistCurso.Jtbl_Asignaturas.getValueAt(idEdit, 1);
         curso.setNombre(nombre);
@@ -711,6 +709,10 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             numEstad = 1;
         }
         vistEditarCurso.getJcb_EstadoCurso().setSelectedIndex(numEstad);
+        
+        dirigido = (String) vistRegistCurso.Jtbl_Asignaturas.getValueAt(idEdit, 3);
+        curso.setDirigido(dirigido);
+        vistEditarCurso.getJcb_DirigidoCurso().setSelectedItem(dirigido);
     }
 
 
@@ -1003,13 +1005,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void anadirCurso() {
 
         boolean estado;
-        if (vistCrearCurso.Jcb_Estado.getSelectedItem().equals("Activo")) {
-            estado = true;
-
-        } else {
-            estado = false;
-        }
-        CursoEntity curso = new CursoEntity(vistCrearCurso.Jtf_Nombre.getText(), estado);
+        estado = vistCrearCurso.Jcb_Estado.getSelectedItem().toString().equals("Activo");
+        CursoEntity curso = new CursoEntity(vistCrearCurso.Jtf_Nombre.getText(),vistCrearCurso.Jcb_Dirigido.getSelectedItem().toString() ,estado);
 
         try {
 
@@ -1030,7 +1027,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         DaoCurso daocurso = new DaoCurso();
 
         this.datos = daocurso.consultar();
-        String COLUM[] = {"ID", "Nombre", "Estado"};
+        String COLUM[] = {"ID", "Nombre", "Estado","Dirigido"};
         DefaultTableModel modelocurso = new DefaultTableModel(COLUM, 0);
 
         modelocurso.setNumRows(0);
@@ -1360,11 +1357,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void generarReporteEnPdf(){
         
         String usuario = "postgres";
-        String contrasena = "admin";
+        String contrasena = "admin1234";
     
-        String base = "Buen_PastorB";
-        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\report1.jrxml";
-        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\";
+        String base = "buenPastor";
+
+        String rutaOrigen = System.getProperty("user.dir") + "/src/reportes/report1.jrxml";
+        String rutaDestino = System.getProperty("user.dir") + "/src/reportes/report1.pdf";
         
          Connection conexion = null;
 
@@ -1426,11 +1424,12 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void generarReporteEnPdfConRangoDeFechas(){
         
         String usuario = "postgres";
-        String contrasena = "admin";
+        String contrasena = "admin1234";
     
-        String base = "Buen_PastorB";
-        String rutaOrigen = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\report_general_asistencias.jrxml";
-        String rutaDestino = "C:\\Users\\wjoan\\OneDrive\\Escritorio\\VinculacionUG\\src\\reportes\\";
+        String base = "buenPastor";            
+       
+        String rutaOrigen = System.getProperty("user.dir") + "/src/reportes/report_general_asistencias.jrxml";
+        String rutaDestino = System.getProperty("user.dir") + "/src/reportes/report1.pdf";
         
          Connection conexion2 = null;
 
@@ -1443,7 +1442,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
                // System.out.println("Conexion lista");
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.err.println("Conexion no establecida ");
 
         }

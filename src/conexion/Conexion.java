@@ -12,9 +12,9 @@ public class Conexion {
     public Connection conexion;
     
     static String usuario = "postgres";
-    static String contrasena = "admin";
+    static String contrasena = "admin1234";
 
-    static String base = "Buen_PastorB";
+    static String base = "buenPastor";
 //    static String base = "dbr_buenpastorB";
     static String cadenaConexion = "jdbc:postgresql://127.0.0.1/"+base+"?"+ "user="+usuario+"&password="+contrasena;
     //private Statement sentencia = null;

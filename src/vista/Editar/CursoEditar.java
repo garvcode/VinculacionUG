@@ -47,12 +47,12 @@ public class CursoEditar extends javax.swing.JFrame {
         jTxtCurso = new javax.swing.JTextField();
         jBtn_ModificarCurso = new javax.swing.JButton();
         jLblRetroceder = new javax.swing.JLabel();
-        Jcb_EstadoCurso = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        Jlb_Id = new javax.swing.JLabel();
+        Jcb_DirigidoCurso = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5C1 = new javax.swing.JLabel();
+        Jcb_EstadoCurso = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(228, 244, 251));
@@ -60,11 +60,11 @@ public class CursoEditar extends javax.swing.JFrame {
 
         jLabel2C.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel2C.setText("Nombre");
-        jPanel1.add(jLabel2C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        jPanel1.add(jLabel2C, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
         jLabel5C.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel5C.setText("Estado");
-        jPanel1.add(jLabel5C, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        jPanel1.add(jLabel5C, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         jTxtCurso.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         jTxtCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -72,36 +72,36 @@ public class CursoEditar extends javax.swing.JFrame {
                 jTxtCursoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTxtCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 140, -1));
+        jPanel1.add(jTxtCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 220, -1));
 
         jBtn_ModificarCurso.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jBtn_ModificarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
         jBtn_ModificarCurso.setText("Guardar");
         jBtn_ModificarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtn_ModificarCursoActionPerformed(evt);
             }
         });
-        jPanel1.add(jBtn_ModificarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+        jPanel1.add(jBtn_ModificarCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         jLblRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroceso.png"))); // NOI18N
         jPanel1.add(jLblRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        Jcb_EstadoCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        Jcb_EstadoCurso.setToolTipText("");
-        jPanel1.add(Jcb_EstadoCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 90, -1));
-
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel3.setText("ID:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
-
-        Jlb_Id.setBackground(new java.awt.Color(255, 255, 255));
-        Jlb_Id.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        Jlb_Id.setText("8");
-        jPanel1.add(Jlb_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 130, -1));
+        Jcb_DirigidoCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niño", "Padre", "Madre", "Ambos Padres" }));
+        Jcb_DirigidoCurso.setToolTipText("");
+        jPanel1.add(Jcb_DirigidoCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 220, 30));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setText("Editar Curso");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+
+        jLabel5C1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel5C1.setText("Dirigido");
+        jPanel1.add(jLabel5C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+
+        Jcb_EstadoCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        Jcb_EstadoCurso.setToolTipText("");
+        jPanel1.add(Jcb_EstadoCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,28 +130,24 @@ public class CursoEditar extends javax.swing.JFrame {
     
 
     public JComboBox  getJcb_EstadoCurso() {
-        return Jcb_EstadoCurso;
+        return Jcb_DirigidoCurso;
     }
 
     public void setJcb_EstadoCurso(JComboBox<String> Jcb_EstadoCurso) {
-        this.Jcb_EstadoCurso = Jcb_EstadoCurso;
+        this.Jcb_DirigidoCurso = Jcb_EstadoCurso;
     }
 
     public JTextField getjTxtCurso() {
         return jTxtCurso;
     }
 
-    public JLabel getJlb_Id() {
-        return Jlb_Id;
+    public JComboBox<String> getJcb_DirigidoCurso() {
+        return Jcb_DirigidoCurso;
     }
 
-    public void setJlb_Id(JLabel Jlb_Id) {
-        this.Jlb_Id = Jlb_Id;
-    }
-
-  
-
-   
+    public void setJcb_DirigidoCurso(JComboBox<String> Jcb_DirigidoCurso) {
+        this.Jcb_DirigidoCurso = Jcb_DirigidoCurso;
+    } 
 
     public JLabel getjLblRetroceder() {
         return jLblRetroceder;
@@ -170,7 +166,8 @@ public class CursoEditar extends javax.swing.JFrame {
          
         boolean verif = false;
         
-        
+        String dirigido;
+       
         
        
         estadeestrean= (String) Jcb_EstadoCurso.getSelectedItem();
@@ -179,6 +176,8 @@ public class CursoEditar extends javax.swing.JFrame {
         }else{
             estado= false;
         }
+        
+        dirigido = Jcb_DirigidoCurso.getSelectedItem().toString();
         
         if (jTxtCurso.getText().equalsIgnoreCase(curso.getNombre())&&
             estado== curso.isEstado()){
@@ -189,7 +188,7 @@ public class CursoEditar extends javax.swing.JFrame {
             if((jTxtCurso.getText().equalsIgnoreCase(""))){
                 JOptionPane.showMessageDialog(null, "Los campos no pueden estar vacios, agregar valores ", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                nuevosDatosCurso(estado);
+                nuevosDatosCurso(estado,dirigido);
                 DaoCurso daocur= new  DaoCurso();
                 verif = daocur.modificar(usuCurso);
 //                if (verif==true) {
@@ -204,11 +203,11 @@ public class CursoEditar extends javax.swing.JFrame {
         return verif;
     }
 
-    private void nuevosDatosCurso(boolean valEstado) {
+    private void nuevosDatosCurso(boolean valEstado,String dirigido) {
         usuCurso = new CursoEntity();
         usuCurso.setId(curso.getId());
         usuCurso.setNombre(jTxtCurso.getText());
-  
+        usuCurso.setDirigido(dirigido);
         usuCurso.setEstado(valEstado);
       
     }
@@ -277,12 +276,12 @@ public class CursoEditar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> Jcb_DirigidoCurso;
     public javax.swing.JComboBox<String> Jcb_EstadoCurso;
-    public javax.swing.JLabel Jlb_Id;
     private javax.swing.JButton jBtn_ModificarCurso;
     private javax.swing.JLabel jLabel2C;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5C;
+    private javax.swing.JLabel jLabel5C1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLblRetroceder;
     private javax.swing.JPanel jPanel1;

@@ -8,17 +8,22 @@ package modelo;
 public class CursoEntity {
     String nombre;
     int id ;
+     String dirigido;
     boolean estado;
 
-    public CursoEntity(String nombre, boolean estado) {
+    public CursoEntity(String nombre, String dirigido, boolean estado) {
         this.nombre = nombre;
+        this.dirigido = dirigido;
         this.estado = estado;
     }
 
-    public CursoEntity() {
-    }
+    public CursoEntity(String nombre,  boolean estado) {
+        this.nombre = nombre;
+        this.estado = estado;
+    }   
 
-    
+    public CursoEntity() {
+    }   
 
     public CursoEntity( int id,String nombre) {
         this.id = id;
@@ -49,16 +54,16 @@ public class CursoEntity {
         this.estado = estado;
     }
 
+    public String getDirigido() {
+        return dirigido;
+    }
 
-
+    public void setDirigido(String dirigido) {
+        this.dirigido = dirigido;
+    }
+    
     @Override
     public String toString() {
         return nombre;
-    }
-    
-
-    
-
-   
-    
+    }   
 }
