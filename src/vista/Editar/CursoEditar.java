@@ -180,7 +180,7 @@ public class CursoEditar extends javax.swing.JFrame {
         dirigido = Jcb_DirigidoCurso.getSelectedItem().toString();
         
         if (jTxtCurso.getText().equalsIgnoreCase(curso.getNombre())&&
-            estado== curso.isEstado()){
+            estado== curso.isEstado() && dirigido.equals(curso.getDirigido())){
             int opcion = JOptionPane.YES_NO_OPTION;
             JOptionPane.showMessageDialog(null,"Los datos son los mismos que estan registrados, si desea modificarlos debe cambiarlos. Quiere modificar los datos? ","Sistema" ,JOptionPane.INFORMATION_MESSAGE);
             

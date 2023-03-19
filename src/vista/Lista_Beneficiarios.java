@@ -45,10 +45,9 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         jBttn_editarBenef = new javax.swing.JButton();
         jBttn_asignarCurso = new javax.swing.JButton();
         JBTN_exportar = new javax.swing.JButton();
-        JBTN_exportar3 = new javax.swing.JButton();
+        JBTN_exportarPDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1370, 850));
 
         jPanel1.setBackground(new java.awt.Color(228, 244, 251));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,17 +142,17 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         });
         jPanel1.add(JBTN_exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 170, 130));
 
-        JBTN_exportar3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        JBTN_exportar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf-icon.png"))); // NOI18N
-        JBTN_exportar3.setText("Exportar a pdf");
-        JBTN_exportar3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        JBTN_exportar3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        JBTN_exportar3.addActionListener(new java.awt.event.ActionListener() {
+        JBTN_exportarPDF.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        JBTN_exportarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf-icon.png"))); // NOI18N
+        JBTN_exportarPDF.setText("Exportar a pdf");
+        JBTN_exportarPDF.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JBTN_exportarPDF.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        JBTN_exportarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBTN_exportar3ActionPerformed(evt);
+                JBTN_exportarPDFActionPerformed(evt);
             }
         });
-        jPanel1.add(JBTN_exportar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 170, 130));
+        jPanel1.add(JBTN_exportarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 170, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,9 +191,9 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBTN_exportarActionPerformed
 
-    private void JBTN_exportar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTN_exportar3ActionPerformed
+    private void JBTN_exportarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBTN_exportarPDFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBTN_exportar3ActionPerformed
+    }//GEN-LAST:event_JBTN_exportarPDFActionPerformed
     
     public void agregar_Beneficiario(){
         Ins_Personal btnDatospersonal = new Ins_Personal();
@@ -283,9 +282,17 @@ public class Lista_Beneficiarios extends javax.swing.JFrame {
         this.jBttn_asignarCurso = jBttn_asignarCurso;
     }
 
+    public JButton getJBTN_exportarPDF() {
+        return JBTN_exportarPDF;
+    }
+
+    public void setJBTN_exportarPDF(JButton JBTN_exportarPDF) {
+        this.JBTN_exportarPDF = JBTN_exportarPDF;
+    }   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBTN_exportar;
-    private javax.swing.JButton JBTN_exportar3;
+    private javax.swing.JButton JBTN_exportarPDF;
     public javax.swing.JTable Jtab_LstBeneficiario;
     private javax.swing.JButton jBttn_AgregarBenefi;
     private javax.swing.JButton jBttn_asignarCurso;

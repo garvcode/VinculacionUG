@@ -124,13 +124,61 @@ public class DaoCurso extends Conexion implements ICurso {
        }
     }
 
+    
+       public ArrayList<Object[]> consultar(int index) {
+         Connection conexion= null;
+        Statement sta=null;
+        PreparedStatement stm= null;
+        ResultSet rs=null;
+        ArrayList<Object[]> cursoList= new ArrayList<>();
+        
+        String dirigido = "";
+        //String dirigidoAmbos = "";
+        String sql= "";
+        
+         switch (index) {
+             case 0:
+                 sql="SELECT id_curso,nom_cur,estado_cur,dirigido_cur FROM PUBLIC.curso WHERE dirigido_cur= 'Niños' ORDER by id_curso";
+                 break;
+             case 1:
+                 sql="SELECT id_curso,nom_cur,estado_cur,dirigido_cur FROM PUBLIC.curso WHERE dirigido_cur= 'Padres' OR dirigido_cur = 'Ambos Padres' ORDER by id_curso";
+                 break;   
+             case 2:
+                 sql="SELECT id_curso,nom_cur,estado_cur,dirigido_cur FROM PUBLIC.curso WHERE dirigido_cur= 'Madres' OR dirigido_cur = 'Ambos Padres' ORDER by id_curso";
+                 break;
+             default:
+                 break;
+         }
+        
+         //sql="SELECT id_curso,nom_cur,estado_cur,dirigido_cur FROM PUBLIC.curso  ORDER by id_curso";
+        
+        try {
+            this.conectar();
+            conexion=this.getCon();
+            sta=conexion.createStatement();
+            sta.execute(sql);
+            sta.close();
+
+            stm=conexion.prepareStatement(sql);
+            rs= stm.executeQuery();
+             while(rs.next()){
+                Object[] fila = new Object[4];
+                for(int i=0; i<=3;i++){
+                   fila[i]=rs.getObject(i+1);
+                }
+                cursoList.add(fila);
+            }
+            conexion.close();
+               
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Ocurrio un error EN sql CONSULTAR curso:"+e.getMessage());
+       } finally{
+           return cursoList;
+       }
+    }
+    
     @Override
     public CursoEntity obtener(CursoEntity curso) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
-    
-    
-    
+    }    
 }

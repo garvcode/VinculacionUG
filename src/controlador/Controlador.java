@@ -32,6 +32,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,6 +47,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import modelo.*;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -53,6 +55,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.*;
+import vista.Editar.BeneFiltro;
 import vista.Editar.CursoEditar;
 import vista.Editar.DatosEditar;
 
@@ -105,6 +108,8 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     private final Ins_DatoMadre vistIngMadre = new Ins_DatoMadre();
     private final Ins_DatoSocialesEco vistInsDatSocioEco = new Ins_DatoSocialesEco();
 
+    private final BeneFiltro vistBeneFiltro = new BeneFiltro();
+    
 //    private List_Padres vistListPadres = new List_Padres();
     Reg_Escolar editarescolar;
 
@@ -177,6 +182,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistIngMadre.getJbtn_datosEscolares().addActionListener(this);
 
         vistCursoPer.getjLblRetroceder().addMouseListener(this);
+        vistCursoPer.getjBttnBuscarCurso().addActionListener(this);
         vistCursoPer.getjBttnGuardarCurso().addActionListener(this);
 
         vistInsDatSocioEco.getJbtn_guardarDatosSoeco().addActionListener(this);
@@ -197,6 +203,9 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistEditarDatos.getJRB_secundaria().addFocusListener(this);
         vistBeneficiarioLis.getjBttn_AgregarBenefi().addActionListener(this);
         vistBeneficiarioLis.getjBttn_asignarCurso().addActionListener(this);
+        vistBeneficiarioLis.getJBTN_exportarPDF().addActionListener(this);
+
+        vistBeneFiltro.getjBtn_GenerarPdf().addActionListener(this);
 
 //        vistListPadres.getjButton_AgregarPadr().addActionListener(this);
 //        vistListPadres.getjButton_EditarDatos().addActionListener(this);
@@ -342,18 +351,43 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             if (verifiSeleCur()) {
                 vistCursoPer.setVisible(true);
                 //vistBeneficiarioLis.setVisible(false);
-                vistCursoPer.llenarCursos();
+                //vistCursoPer.llenarCursos();
             }
         }
+        
+        if (boton.equals(vistBeneficiarioLis.getJBTN_exportarPDF())) {
+               vistBeneFiltro.setVisible(true);
+        }  
+         
+        if (boton.equals(vistCursoPer.getjBttnBuscarCurso())) {
+             int index = vistCursoPer.getjCmbNombre().getSelectedIndex();
+                vistCursoPer.llenarCursos(index);
+            
+                
+            
+//            if (vistCursoPer.verifiCurso()) {
+//                vistCursoPer.setVisible(false);
+//                //vistBeneficiarioLis.setVisible(false);
+//                JOptionPane.showMessageDialog(null, "El curso fue registrado");
+//            }
+        }   
+        
+         if (boton.equals(vistBeneFiltro.getjBtn_GenerarPdf())) {             
+            try {              
+                generarListaBeneficiario();
+            } catch (SQLException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        
+        
         if (boton.equals(vistCursoPer.getjBttnGuardarCurso())) {
             if (vistCursoPer.verifiCurso()) {
                 vistCursoPer.setVisible(false);
                 //vistBeneficiarioLis.setVisible(false);
                 JOptionPane.showMessageDialog(null, "El curso fue registrado");
             }
-        }
-        
-            
+        }           
         if (boton.equals(vistBeneficiarioLis.getjBttn_AgregarBenefi())) { // abrir ventana para agregar curso
             crearbene.setVisible(true);
             vistBeneficiarioLis.setVisible(false);
@@ -993,7 +1027,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             String fecha = año + "-" + mes + "-" + dia;
             Date fechanaci = formato.parse(fecha);
             beneficiario.setBen_fechanac(fechanaci);
-        } catch (Exception e) {
+        } catch (ParseException e) {
             JOptionPane.showMessageDialog(null, "Error en fecha: " + e, "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -1352,6 +1386,44 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void mouseExited(MouseEvent e) {
 
     }
+    
+    private void generarListaBeneficiario() throws SQLException{   
+        try {
+            String usuario = "postgres";
+            String contrasena = "admin1234";
+
+            String base = "buenPastor";
+            Connection conexion = null;
+
+            conexion = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/"+base+"?"+ "user="+usuario+"&password="+contrasena);
+
+            conexion.setAutoCommit(false);
+
+            if (conexion != null) {
+                System.out.println("Conexion lista");
+            }
+            
+            String report = System.getProperty("user.dir") + "/src/reportes/ListadoBeneficiario.jrxml";
+            
+            JasperReport jasperReport = JasperCompileManager.compileReport(report);
+            
+            Map<String,Object> parametros = new HashMap<>();            
+            
+            String beneFiltro = vistBeneFiltro.Jcb_EstadoBeneficiario.getSelectedItem().toString();
+
+            if(beneFiltro.equals("Todos")){
+                beneFiltro = "%%";
+            }
+
+            parametros.put("getParamEstado", beneFiltro);
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros , conexion);
+
+            JasperViewer.viewReport(jasperPrint,false);           
+        } catch (JRException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }    
     
     
     public void generarReporteEnPdf(){

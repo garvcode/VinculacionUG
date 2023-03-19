@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import dao.DaoPadres;
 import dao.DaoAsignacionCurso;
+import javax.swing.JComboBox;
 import modelo.AsignacionCurso;
 
 /**
@@ -23,7 +24,7 @@ import modelo.AsignacionCurso;
 public class Ins_Curso_per extends javax.swing.JFrame {
 
     ArrayList<Object[]> datos = new ArrayList<>();
-    String COLUMCurso[] = {"Id", "Nombre"};
+    String COLUMCurso[] = {"Id", "Nombre","Estado","Dirigido"};
     DefaultTableModel modelocurso = new DefaultTableModel(COLUMCurso, 0);
     String nom_bene, ape_bene, nompapa, nommama;
     AsignacionCurso asignacion = new AsignacionCurso();
@@ -37,7 +38,7 @@ public class Ins_Curso_per extends javax.swing.JFrame {
         setLocationRelativeTo(null);        
         this.setResizable(false);
         setTitle("Regitro de curso");
-        llenarCursos();
+        //llenarCursos();
     }
 
     /**
@@ -57,6 +58,7 @@ public class Ins_Curso_per extends javax.swing.JFrame {
         jTblCurso = new javax.swing.JTable();
         jBttnGuardarCurso = new javax.swing.JButton();
         jLblRetroceder = new javax.swing.JLabel();
+        jBttnBuscarCurso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -75,14 +77,14 @@ public class Ins_Curso_per extends javax.swing.JFrame {
 
         jTblCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombre"
+                "Id", "Nombre", "Estado", "Dirigido"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,6 +106,8 @@ public class Ins_Curso_per extends javax.swing.JFrame {
 
         jLblRetroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/retroceso.png"))); // NOI18N
 
+        jBttnBuscarCurso.setText("Buscar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -111,7 +115,7 @@ public class Ins_Curso_per extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
+                        .addGap(280, 280, 280)
                         .addComponent(jBttnGuardarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLblRetroceder)
@@ -123,8 +127,10 @@ public class Ins_Curso_per extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane4)
-                            .addComponent(jCmbNombre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                            .addComponent(jCmbNombre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jBttnBuscarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +143,8 @@ public class Ins_Curso_per extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jCmbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCmbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBttnBuscarCurso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -215,7 +222,24 @@ public class Ins_Curso_per extends javax.swing.JFrame {
         this.jBttnGuardarCurso = jBttnGuardarCurso;
     }
 
+    public JButton getjBttnBuscarCurso() {
+        return jBttnBuscarCurso;
+    }
+
+    public void setjBttnBuscarCurso(JButton jBttnBuscarCurso) {
+        this.jBttnBuscarCurso = jBttnBuscarCurso;
+    }   
+
+    public JComboBox getjCmbNombre() {
+        return jCmbNombre;
+    }
+
+    public void setjCmbNombre(JComboBox jCmbNombre) {
+        this.jCmbNombre = jCmbNombre;
+    }   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBttnBuscarCurso;
     private javax.swing.JButton jBttnGuardarCurso;
     private javax.swing.JComboBox jCmbNombre;
     private javax.swing.JLabel jLabel5;
@@ -232,32 +256,32 @@ public class Ins_Curso_per extends javax.swing.JFrame {
         ape_bene = (String) modelo.getValueAt(idEdit, 2);
         nompapa = (String) modelo.getValueAt(idEdit, 3);
         nommama = (String) modelo.getValueAt(idEdit, 4);
-        if (nompapa.equals("Actualizar")&& nommama.equals("Actualizar") ){
-            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Actualizar datos de padres"}));
-        }else if (nompapa.equals("Actualizar") ){
-            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nommama }));
-        } else if (nommama.equals("Actualizar") ){
-            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nompapa }));
-        } else {
-            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nompapa, nommama }));
-        }
+//        if (nompapa.equals("Actualizar")&& nommama.equals("Actualizar") ){
+//            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Actualizar datos de padres"}));
+//        }else if (nompapa.equals("Actualizar") ){
+//            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nommama }));
+//        } else if (nommama.equals("Actualizar") ){
+//            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nompapa }));
+//        } else {
+            jCmbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nom_bene + ' ' + ape_bene ,nompapa, nommama }));
+//        }
             
         
     }
     
-    public void llenarCursos() {
+    public void llenarCursos(int posicion) {
         DaoCurso daocurso = new DaoCurso();
         CursoEntity curso = new CursoEntity();
        
-        this.datos = daocurso.consultar();
+        this.datos = daocurso.consultar(posicion);
         modelocurso.setNumRows(0);
         for (Object[] daots : this.datos) {
             modelocurso.addRow(daots);
         }
-        jTblCurso.setModel(modelocurso);
-        
+        jTblCurso.setModel(modelocurso);        
     }
-
+    
+    
     public boolean verifiCurso() {
         boolean valor = false;
         int idEdit = jTblCurso.getSelectedRow();
@@ -289,10 +313,6 @@ public class Ins_Curso_per extends javax.swing.JFrame {
             asignacion.setParentesco(parentesco);
             DaoAsignacionCurso daoasign = new DaoAsignacionCurso();
             daoasign.insertar(asignacion);
-        }
-           
-        
-    }
-
-    
+        }       
+    }   
 }
