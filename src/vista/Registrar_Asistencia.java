@@ -6,6 +6,8 @@
 package vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Container;
+import java.util.Calendar;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -24,6 +26,12 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Asistencia de beneficiarios");
+        JDateChooser jDateChooser3 = new JDateChooser();
+        Calendar cal = Calendar.getInstance(); // Obtenemos una instancia de la fecha actual
+        jDateChooser3.setDate(cal.getTime()); // Establecemos la fecha actual como fecha por defecto
+        // Agregar el JDateChooser al JFrame
+        Container contentPane = this.getContentPane();
+        contentPane.add(jDateChooser3);
     }
 
     /**
@@ -51,7 +59,6 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         Jbtn_GenerarReporteEnPdf = new javax.swing.JButton();
-        Jbtn_ReporteGeneralEnPdf = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -149,14 +156,12 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
 
         Jbtn_GenerarReporteEnPdf.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         Jbtn_GenerarReporteEnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf-icon.png"))); // NOI18N
-        Jbtn_GenerarReporteEnPdf.setText("GENERAR POR CURSOS");
+        Jbtn_GenerarReporteEnPdf.setText("GENERAR REPORTES");
         Jbtn_GenerarReporteEnPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Jbtn_GenerarReporteEnPdfActionPerformed(evt);
             }
         });
-
-        Jbtn_ReporteGeneralEnPdf.setText("REPORTE GENERAL");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,16 +192,14 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
                                 .addComponent(Jbtn_BuscarAsistencia)
                                 .addGap(36, 36, 36)
                                 .addComponent(Jbtn_editarCurso))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(Jbtn_guardar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Jbtn_ModificarAsis)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(Jbtn_GenerarReporteEnPdf)
-                                    .addGap(100, 100, 100)
-                                    .addComponent(Jbtn_ReporteGeneralEnPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(Jbtn_guardar)
+                                .addGap(83, 83, 83)
+                                .addComponent(Jbtn_ModificarAsis)
+                                .addGap(109, 109, 109)
+                                .addComponent(Jbtn_GenerarReporteEnPdf)))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -224,13 +227,12 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
                         .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(Jbtn_ModificarAsis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Jbtn_GenerarReporteEnPdf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Jbtn_ModificarAsis, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Jbtn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbtn_ReporteGeneralEnPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(403, 403, 403))
+                    .addComponent(Jbtn_GenerarReporteEnPdf, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -392,13 +394,7 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
         this.jDateChooser3 = jDateChooser3;
     }
 
-    public JButton getJbtn_ReporteGeneralEnPdf() {
-        return Jbtn_ReporteGeneralEnPdf;
-    }
-
-    public void setJbtn_ReporteGeneralEnPdf(JButton Jbtn_ReporteGeneralEnPdf) {
-        this.Jbtn_ReporteGeneralEnPdf = Jbtn_ReporteGeneralEnPdf;
-    }
+  
     
     
 
@@ -408,7 +404,6 @@ public class Registrar_Asistencia extends javax.swing.JFrame {
     private javax.swing.JButton Jbtn_BuscarAsistencia;
     private javax.swing.JButton Jbtn_GenerarReporteEnPdf;
     private javax.swing.JButton Jbtn_ModificarAsis;
-    private javax.swing.JButton Jbtn_ReporteGeneralEnPdf;
     private javax.swing.JButton Jbtn_editarCurso;
     private javax.swing.JButton Jbtn_guardar;
     public javax.swing.JComboBox<CursoEntity> jCmbBMaterias;

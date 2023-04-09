@@ -94,6 +94,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     private final Registro_Curso vistRegistCurso = new Registro_Curso();
 //    private final Asistencia_General vistAsisGeneral = new Asistencia_General();
    
+    private final Reports2 reports = new Reports2();
     private final Crear_NuevoCurso vistCrearCurso = new Crear_NuevoCurso();
     private final CursoEditar vistEditarCurso = new CursoEditar();
 
@@ -127,8 +128,7 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
 
     Reg_Benf beneficiario = new Reg_Benf();
     
-    public Controlador() {
-    }
+    public Controlador() { }
 
     public void iniciarVista() {
         vistInicio.btnIngresar.addActionListener(this);
@@ -157,7 +157,6 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistRegistAsis.getJbtn_guardar().addActionListener(this);
         vistRegistAsis.getJbtn_editarCurso().addActionListener(this);
         vistRegistAsis.getJbtn_GenerarReporteEnPdf().addActionListener(this);
-        vistRegistAsis.getJbtn_ReporteGeneralEnPdf().addActionListener(this);
 
         vistRegistAsis.getjLblRetroceder().addMouseListener(this);
         vistRegistCurso.Jbtn_agrCurso.addActionListener(this);
@@ -167,6 +166,10 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         vistRegistCurso.getjLblRetroceder().addMouseListener(this);
         
         vistRegistAsis.getjCmbBMaterias().addActionListener(this);
+        
+        //--
+        reports.getjButtonGenerarReportsss().addActionListener(this);
+        //--
         
 //        vistAsisGeneral.getjBttnGuardarForm().addActionListener(this);
 //        vistAsisGeneral.getjBttnCerrarForm().addActionListener(this);
@@ -293,19 +296,18 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
         }
 
         //Registro de asistencia---------------------------------------------
+        
+         if (boton.equals(vistRegistAsis.getJbtn_GenerarReporteEnPdf())){
+            reports.setVisible(true);
+        }
         if (boton.equals(vistRegistAsis.getJbtn_guardar())) {
             RecorrerTabla();
             //debe ir il ingreso de la asistensia a la base de datos
             vistMenu.setVisible(true);
             vistRegistAsis.setVisible(false);
         }
-         if (boton.equals(vistRegistAsis.getJbtn_GenerarReporteEnPdf())){
-            generarReporteEnPdf();
-            //System.out.println("error");
-        }
-         else if (boton.equals(vistRegistAsis.getJbtn_ReporteGeneralEnPdf())){
-            generarReporteEnPdfConRangoDeFechas();
-        }
+         
+         
         if (boton.equals(vistRegistAsis.getJbtn_editarCurso())) { // editar cursos disponibles
             //debe ir el metdodo para llenar la tabla
 
@@ -519,6 +521,13 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             vistRegistAsis.setVisible(false);
             
             
+        }
+        
+        // reports
+         if (boton.equals(reports.getjButtonGenerarReportsss())) {
+            System.out.println("Arrived");
+            reporteDeAsistencias();
+
         }
 
 //        //Asistensias de los cursos------------------------------------------------------    
@@ -1390,10 +1399,9 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     private void generarListaBeneficiario() throws SQLException{   
         try {
             String usuario = "postgres";
-            String contrasena = "admin1234";
-
-            String base = "buenPastor";
-            Connection conexion = null;
+        String contrasena = "admin";
+    
+        String base = "Buen_PastorB";
 
             conexion = DriverManager.getConnection("jdbc:postgresql://127.0.0.1/"+base+"?"+ "user="+usuario+"&password="+contrasena);
 
@@ -1429,9 +1437,9 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     public void generarReporteEnPdf(){
         
         String usuario = "postgres";
-        String contrasena = "admin1234";
+        String contrasena = "admin";
     
-        String base = "buenPastor";
+        String base = "Buen_PastorB";
 
         String rutaOrigen = System.getProperty("user.dir") + "/src/reportes/report1.jrxml";
         String rutaDestino = System.getProperty("user.dir") + "/src/reportes/report1.pdf";
@@ -1495,11 +1503,10 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
     
     public void generarReporteEnPdfConRangoDeFechas(){
         
-        String usuario = "postgres";
-        String contrasena = "admin1234";
+       String usuario = "postgres";
+        String contrasena = "admin";
     
-        String base = "buenPastor";            
-       
+        String base = "Buen_PastorB";
         String rutaOrigen = System.getProperty("user.dir") + "/src/reportes/report_general_asistencias.jrxml";
         String rutaDestino = System.getProperty("user.dir") + "/src/reportes/report1.pdf";
         
@@ -1563,6 +1570,18 @@ public class Controlador extends Conexion implements ActionListener, FocusListen
             System.out.println(e.getMessage());
         }
     }
-
     
+    
+    public void reporteDeAsistencias() {
+
+        if (reports.getjRadioButtonReportsForCourses().isSelected()) {
+            generarReporteEnPdf();
+        } else if (reports.getjRadioButtonReportsGeneral().isSelected()) {
+
+            generarReporteEnPdfConRangoDeFechas();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción");
+        }
+    }
 }

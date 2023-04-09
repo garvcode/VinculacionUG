@@ -85,17 +85,14 @@
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="Jbtn_editarCurso" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane2" min="-2" pref="1054" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="Jbtn_guardar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="Jbtn_ModificarAsis" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="Jbtn_GenerarReporteEnPdf" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Component id="Jbtn_ReporteGeneralEnPdf" min="-2" pref="152" max="-2" attributes="0"/>
-                                  </Group>
+                              <Component id="jScrollPane2" alignment="0" min="-2" pref="1054" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="Jbtn_guardar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                  <Component id="Jbtn_ModificarAsis" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="Jbtn_GenerarReporteEnPdf" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -135,14 +132,13 @@
                       </Group>
                   </Group>
                   <Component id="jScrollPane2" min="-2" pref="322" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" max="-2" attributes="0">
-                      <Component id="Jbtn_ModificarAsis" alignment="3" max="32767" attributes="0"/>
-                      <Component id="Jbtn_GenerarReporteEnPdf" alignment="3" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="Jbtn_ModificarAsis" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="Jbtn_guardar" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="Jbtn_ReporteGeneralEnPdf" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="Jbtn_GenerarReporteEnPdf" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -321,16 +317,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagenes/pdf-icon.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="GENERAR POR CURSOS"/>
+            <Property name="text" type="java.lang.String" value="GENERAR REPORTES"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jbtn_GenerarReporteEnPdfActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="Jbtn_ReporteGeneralEnPdf">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="REPORTE GENERAL"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
